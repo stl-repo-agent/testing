@@ -19,7 +19,7 @@ RUN curl -o /usr/local/bin/cloud_sql_proxy https://dl.google.com/cloudsql/cloud_
 
 # custom entrypoint
 COPY wordpress/cloud-run-entrypoint.sh /usr/local/bin/
-
+RUN chmod 777 /usr/local/bin/cloud-run-entrypoint.sh
 
 ENTRYPOINT ["cloud-run-entrypoint.sh","docker-entrypoint.sh"]
 CMD ["apache2-foreground"]
